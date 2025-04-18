@@ -305,3 +305,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 6356506043740244815, guid: 51b6fbf0e1a300640ab4ef442902cae7, type: 3}
+  coinPrefab: {fileID: 5961890963456279520, guid: 89b72aad51e3dab4e8c35b1ecb26333b, type: 3}
