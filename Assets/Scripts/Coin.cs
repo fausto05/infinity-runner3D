@@ -11,16 +11,16 @@ public class Coin : MonoBehaviour
             return;
         }
         
-        // Check that the object we collided with is the player
+        // Verificar que el objeto con el que colisionamos sea el jugador 
         if (other.gameObject.name != "Player")
         {
             return;
         }
 
-        // Add to the player´s score
+        // Sumar puntaje del jugador
         GameManager.inst.IncrementScore();
 
-        // Destroy this coin object
+        // Destruir la moneda
         Destroy(gameObject);
     }
     private void Update()

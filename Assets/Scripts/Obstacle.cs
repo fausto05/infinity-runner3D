@@ -12,7 +12,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            // Kill the player
+            // Eliminar al jugador
             playerMovement.Die();
         }
     }

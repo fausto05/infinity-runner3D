@@ -3,35 +3,43 @@ using UnityEngine;
 public class GroundTile : MonoBehaviour
 {
     GroundSpawner groundSpawner;
+    public GameObject obstaclePrefab;
+    public GameObject coinPrefab;
+    public GameObject tallObstaclePrefab;
+    public float tallObstacleChance = 0.2f;
     private void Start()
     {
         groundSpawner = GameObject.FindFirstObjectByType<GroundSpawner>();
-        SpawnObstacle();
-        SpawnCoins();
     }
     
     private void OnTriggerExit(Collider other)
     {
-        groundSpawner.SpawnTile();
+        groundSpawner.SpawnTile(true);
         Destroy(gameObject, 2);
     }
     
-    public GameObject obstaclePrefab;
     
-    void SpawnObstacle()
+    public void SpawnObstacle()
     {
-        // Choose a random point to spawn the obstacle
+        // Elegir que obstaculo generar
+        GameObject obstacleToSpawn = obstaclePrefab;
+        float random = Random.Range(0f, 1f);
+        if (random < tallObstacleChance)
+        {
+            obstacleToSpawn = tallObstaclePrefab;
+        }
+        
+        // Elegir un punto random para generar el obstaculo
         int obstacleSpawnIndex = Random.Range(2, 5);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
 
-        // Spawn the obstacle at the position 
-        Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
+        // Generar el obstaculo en la posicion  
+        Instantiate(obstacleToSpawn, spawnPoint.position, Quaternion.identity, transform);
     }
 
-    public GameObject coinPrefab;
-    void SpawnCoins()
+    public void SpawnCoins()
     {
-        int coinsToSpawn = 10;
+        int coinsToSpawn = 3;
         for (int i = 0; i < coinsToSpawn; i++)
         {
             GameObject temp = Instantiate(coinPrefab, transform); 

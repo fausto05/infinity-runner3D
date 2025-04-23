@@ -573,7 +573,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rb: {fileID: 519593355}
-  horizontalMultiplier: 5
+  horizontalMultiplier: 10
+  speedIncreasePerPoint: 0.1
+  jumpForce: 600
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!54 &519593355
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -850,6 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  playerMovement: {fileID: 519593354}
   scoreText: {fileID: 1574981857}
 --- !u!4 &1048171236
 Transform:
@@ -936,7 +942,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: 0'
+  m_Text: 'PUNTOS: 0'
 --- !u!222 &1574981858
 CanvasRenderer:
   m_ObjectHideFlags: 0
